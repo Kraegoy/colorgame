@@ -97,6 +97,9 @@ button:hover {
     .game-container{
         height: 700px;
     }
+    #color-game-title span{
+        font-size: 0.5em;
+    }
 }
 
 

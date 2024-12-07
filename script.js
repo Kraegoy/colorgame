@@ -87,6 +87,8 @@ function rollDice() {
 }
 
 rollButton.addEventListener("click", function() {
+    event.stopPropagation();
+
     // Disable the button to make it not clickable
     rollButton.disabled = true;
   

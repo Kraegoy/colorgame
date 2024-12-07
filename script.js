@@ -205,9 +205,12 @@ clearButton.addEventListener("click", () => {
 
 
 const showPlayersButton = document.getElementById('burger-menu'); 
+const gameContainer = document.getElementById('game-container'); 
+
 let isPlayersHidden = false;
 
 showPlayersButton.addEventListener('click', () => {
+    event.stopPropagation();
 
     if (isPlayersHidden){
         playerListContainer.style.display = 'block';
@@ -220,4 +223,15 @@ showPlayersButton.addEventListener('click', () => {
 
     }
 
+
 })
+
+gameContainer.addEventListener('click', () => {
+
+    if (!isPlayersHidden){
+        playerListContainer.style.display = 'none';
+        isPlayersHidden = true;
+        showPlayersButton.innerText = 'Show Players'
+    }
+})
+

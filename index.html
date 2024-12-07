@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Color Dice Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>        
+
+    <div class="game-container">
+        <h1 id="color-game-title">
+            <span>K</span><span>r</span><span>a</span><span>e</span><span>g</span>'<span>s</span> 
+            <span>C</span><span>o</span><span>l</span><span>o</span><span>r</span> 
+            <span>G</span><span>a</span><span>m</span><span>e</span>
+          </h1>
+                  <button id="burger-menu">Hide players</button>
+
+        <div class="play-container">
+            <button id="roll-dice">Roll Dice</button>
+        <p>Results: <span id="dice-results">-</span></p>
+        </div>
+        <div class="dice-container">
+            <div class="dice" id="dice1">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+            <div class="dice" id="dice2">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+            <div class="dice" id="dice3">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+<div class="player-list-container" id="player-list-container">
+    <div>
+        <button id="add-player">Add Player</button>
+        <button id="clear">clear</button>
+
+
+        <form id="player-form" style="display: none;">
+            <label for="player-name">Name: </label>
+            <input type="text" id="player-name" placeholder="Enter player name" required><br>
+    
+            <label for="player-color">Pick a color: </label>
+            <select id="player-color" required>
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Pink">Pink</option>
+                <option value="Orange">Orange</option>
+            </select><br>
+    
+            <label for="player-bet">Bet points: </label>
+            <input type="number" id="player-bet" min="1" required><br>
+    
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div id="players-list">
+        <h3>Players:</h3>
+        <ul id="players"></ul>
+        <span class="result" id="result-history"></span>
+
+    </div>
+</div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    height: 500px;
+    width: 80%;
+    max-width: 1200px; /* Add max-width for larger screens */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack button and dice vertically */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dice container - center dice and ensure responsiveness */
+.dice-container {
+    display: flex;
+    justify-content: center;  /* Center dice horizontally */
+    align-items: center;      /* Center dice vertically */
+    gap: 50px;                /* Adjust gap between dice */
+    perspective: 1000px;
+    width: 100%;              /* Make it responsive */
+    height: 300px;            /* Set a fixed height */
+}
+
+/* Dice styles */
+.dice {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 1s ease-in-out;
+    border-radius: 15px;
+}
+
+/* Face styles */
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    font-size: 18px;
+    border-radius: 15px;
+
+}
+
+.front { transform: rotateY(0deg) translateZ(50px); background-color: #e74c3c; }
+.back { transform: rotateY(180deg) translateZ(50px); background-color: #27ae60; }
+.left { transform: rotateY(-90deg) translateZ(50px); background-color: #f1c40f; }
+.right { transform: rotateY(90deg) translateZ(50px); background-color: #3498db; }
+.top { transform: rotateX(90deg) translateZ(50px); background-color: #e84393; }
+.bottom { transform: rotateX(-90deg) translateZ(50px); background-color: #e67e22; }
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #27ae60;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px; /* Add some space below the button */
+}
+
+button:hover {
+    background-color: #219150;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .dice-container {
+        flex-direction: column; /* Stack dice vertically on smaller screens */
+        gap: 40px;              /* Increase space between dice */
+    }
+
+    .dice {
+        width: 80px; /* Reduce dice size on smaller screens */
+        height: 80px;
+    }
+    .game-container{
+        height: 700px;
+    }
+}
+
+
+.player-list-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 80vh; 
+    overflow-y: scroll
+}
+/* Button styling */
+#add-player {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#clear, #add-player{
+    font-size: 0.8em;
+    padding: 8px;
+
+}
+
+#burger-menu{
+    background-color: black;
+}
+
+#add-player:hover {
+    background-color: #0056b3;
+}
+
+/* Form styles */
+form {
+    margin-top: 20px;
+
+}
+
+form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Players list section */
+#players-list {
+    margin-top: 20px;
+
+}
+
+#players-list h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#players ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 0;
+    padding-left: 0;
+
+}
+
+ul#players{
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+
+
+#players li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bolder;
+    position: relative;
+
+}
+
+#players li span {
+    color: rgb(255, 166, 0);
+    font-weight: bolder;
+    margin: 2px;
+    margin-right: 10px;
+
+}
+
+.result {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: #888;
+
+}
+
+/* Hide form initially */
+#player-form {
+    display: none;
+}
+
+
+.edit-bet, .remove-player {
+    cursor: pointer;
+    text-decoration: underline;
+    position: absolute;
+    font-size: 0.7em;
+
+}
+
+.edit-bet{
+    bottom: -1;
+    left: 10px;
+    color: rgb(83, 138, 0);
+
+}
+
+.remove-player {
+    top: 0;
+    font-size: 1em;
+    color: black;
+    border: 1px solid green;
+    background-color: red;
+    border-radius: 50%;
+    right: 1px;
+    width: 10px;
+
+}
+
+.remove-player{
+
+}
+.winnings{
+    color: wheat;
+}
+
+
+
+#color-game-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 3em;
+    margin: 0;
+  }
+  
+  #color-game-title span {
+    display: inline-block;
+    animation: color-change 2s infinite;
+    color: #000;
+  }
+  
+  /* Stagger animation delay for each letter */
+  #color-game-title span:nth-child(1) { animation-delay: 0s; }
+  #color-game-title span:nth-child(2) { animation-delay: 0.1s; }
+  #color-game-title span:nth-child(3) { animation-delay: 0.2s; }
+  #color-game-title span:nth-child(4) { animation-delay: 0.3s; }
+  #color-game-title span:nth-child(5) { animation-delay: 0.4s; }
+  #color-game-title span:nth-child(6) { animation-delay: 0.5s; }
+  #color-game-title span:nth-child(7) { animation-delay: 0.6s; }
+  #color-game-title span:nth-child(8) { animation-delay: 0.7s; }
+  #color-game-title span:nth-child(9) { animation-delay: 0.8s; }
+  #color-game-title span:nth-child(10) { animation-delay: 0.9s; }
+  #color-game-title span:nth-child(11) { animation-delay: 1s; }
+  #color-game-title span:nth-child(12) { animation-delay: 1.1s; }
+  #color-game-title span:nth-child(13) { animation-delay: 1.2s; }
+  #color-game-title span:nth-child(14) { animation-delay: 1.3s; }
+  #color-game-title span:nth-child(15) { animation-delay: 1.4s; }
+  
+  /* Define the animation for color change */
+  @keyframes color-change {
+    0% {
+      color: red;
+    }
+    25% {
+      color: blue;
+    }
+    50% {
+      color: green;
+    }
+    75% {
+      color: purple;
+    }
+    100% {
+      color: orange;
+    }
+  }
+  

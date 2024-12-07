@@ -104,7 +104,7 @@ rollButton.addEventListener("click", function() {
       rollButton.disabled = false;  // Enable the button
       rollButton.style.backgroundColor = '#27ae60';  // Reset button's background color
       document.body.style.cursor = 'default';  // Reset cursor to default
-    }, 1000); // 1000 milliseconds = 1 second
+    }, 2000); // 1000 milliseconds = 1 second
   });
   
   

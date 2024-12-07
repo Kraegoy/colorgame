@@ -95,6 +95,8 @@ rollButton.addEventListener("click", function() {
   
     // Modify the button's appearance (e.g., change background color)
     rollButton.style.backgroundColor = 'black';
+    rollButton.style.color = 'red';
+
   
     // Perform the action
     rollDice();
@@ -104,6 +106,8 @@ rollButton.addEventListener("click", function() {
       rollButton.disabled = false;  // Enable the button
       rollButton.style.backgroundColor = '#27ae60';  // Reset button's background color
       document.body.style.cursor = 'default';  // Reset cursor to default
+      rollButton.style.color = 'white';
+
     }, 2000); // 1000 milliseconds = 1 second
   });
   

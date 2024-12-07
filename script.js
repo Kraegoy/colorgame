@@ -87,19 +87,26 @@ function rollDice() {
 }
 
 rollButton.addEventListener("click", function() {
+    // Disable the button to make it not clickable
+    rollButton.disabled = true;
+  
     // Change cursor to loading
     document.body.style.cursor = 'progress';
   
-    // Disable the button and perform the action
+    // Modify the button's appearance (e.g., change background color)
     rollButton.style.backgroundColor = 'black';
+  
+    // Perform the action
     rollDice();
   
-    // Reset the cursor and enable the button after 1 second
+    // Reset the cursor and re-enable the button after 1 second
     setTimeout(function() {
-      rollButton.disabled = false;
-      rollButton.style.backgroundColor = '#27ae60';
+      rollButton.disabled = false;  // Enable the button
+      rollButton.style.backgroundColor = '#27ae60';  // Reset button's background color
+      document.body.style.cursor = 'default';  // Reset cursor to default
     }, 1000); // 1000 milliseconds = 1 second
   });
+  
   
   
 const addPlayerButton = document.getElementById("add-player");

@@ -86,8 +86,22 @@ function rollDice() {
     });
 }
 
-rollButton.addEventListener("click", rollDice);
-
+rollButton.addEventListener("click", function() {
+    // Change cursor to loading
+    document.body.style.cursor = 'progress';
+  
+    // Disable the button and perform the action
+    rollButton.style.backgroundColor = 'black';
+    rollDice();
+  
+    // Reset the cursor and enable the button after 1 second
+    setTimeout(function() {
+      rollButton.disabled = false;
+      rollButton.style.backgroundColor = '#27ae60';
+    }, 1000); // 1000 milliseconds = 1 second
+  });
+  
+  
 const addPlayerButton = document.getElementById("add-player");
 const playerForm = document.getElementById("player-form");
 const playerNameInput = document.getElementById("player-name");
